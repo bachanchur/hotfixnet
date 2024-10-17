@@ -438,3 +438,162 @@ collection.AddItem("Cherry");
 
 Console.WriteLine(collection.GetItem(0));  // გამოიტანს "Apple"
 Console.WriteLine(collection.GetItem(1));  // გამოიტანს "Banana"
+
+
+
+int temperature = 22;
+string city = "Tbilisi";
+
+for (int i = 1; i <= 7; i++)
+{
+    double fahrenheit = (temperature * 9 / 5) + 32;
+    Console.WriteLine($"City: {city}, Day: {i}, Temperature in Fahrenheit: {fahrenheit}");
+}
+
+
+
+
+public class Student
+{
+    private string _studentName;
+    public string Grade { get; set; }
+
+    public Student(string studentName, string grade)
+    {
+        _studentName = studentName;
+        Grade = grade;
+    }
+
+    public string Greeting()
+    {
+        return $"Hi, I'm {_studentName} and I'm in grade {Grade}.";
+    }
+}
+
+// გამოყენება:
+Student student = new Student("John Doe", "A");
+Console.WriteLine(student.Greeting());
+
+
+
+
+public class Figure
+{
+    protected double Area { get; set; }
+
+    public Figure()
+    {
+        Area = 0;
+    }
+}
+
+public class Triangle : Figure
+{
+    private double _base;
+    private double _height;
+
+    public double Base
+    {
+        get { return _base; }
+        set { _base = value; }
+    }
+
+    public double Height
+    {
+        get { return _height; }
+        set { _height = value; }
+    }
+
+    public double CalculateArea(double baseLength, double height)
+    {
+        Area = baseLength * height / 2;
+        return Area;
+    }
+}
+
+public class Square : Figure
+{
+    private double _sideLength;
+
+    public double SideLength
+    {
+        get { return _sideLength; }
+        set { _sideLength = value; }
+    }
+
+    public double CalculateArea(double sideLength)
+    {
+        Area = sideLength * sideLength;
+        return Area;
+    }
+}
+
+// გამოყენება:
+Triangle triangle = new Triangle();
+Console.WriteLine($"Triangle Area: {triangle.CalculateArea(5, 10)}");
+
+Square square = new Square();
+Console.WriteLine($"Square Area: {square.CalculateArea(4)}");
+
+
+
+
+
+
+
+public abstract class Animal
+{
+    public abstract string MakeSound();
+}
+
+public class Dog : Animal
+{
+    public override string MakeSound()
+    {
+        return "Woof";
+    }
+}
+
+public class Cat : Animal
+{
+    public override string MakeSound()
+    {
+        return "Meow";
+    }
+}
+
+// გამოყენება:
+Dog dog = new Dog();
+Console.WriteLine(dog.MakeSound());
+
+Cat cat = new Cat();
+Console.WriteLine(cat.MakeSound());
+
+
+
+
+public class MyCollection<T>
+{
+    private List<T> items = new List<T>();
+
+    public void AddItem(T item)
+    {
+        items.Add(item);
+    }
+
+    public T GetItem(int index)
+    {
+        return items[index];
+    }
+}
+
+// გამოყენება:
+MyCollection<string> myCollection = new MyCollection<string>();
+myCollection.AddItem("Hello");
+myCollection.AddItem("World");
+
+Console.WriteLine(myCollection.GetItem(0));
+Console.WriteLine(myCollection.GetItem(1));
+
+
+
