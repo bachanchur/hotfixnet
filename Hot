@@ -1,0 +1,440 @@
+/////////////დავალება 1: მონაცემთა ტიპები და კონტროლის სტრუქტურები
+
+int temperature = 22;
+string city = "Tbilisi";
+
+for (int i = 1; i <= 7; i++)
+{
+    double fahrenheit = (temperature * 9.0 / 5.0) + 32;
+    Console.WriteLine($"City: {city}, Day: {i}, Temperature: {fahrenheit}°F");
+}
+
+/////////////დავალება 2: კლასები და მეთოდები
+
+public class Student
+{
+    private string _studentName;
+    public string Grade { get; set; }
+
+    public Student(string name, string grade)
+    {
+        _studentName = name;
+        Grade = grade;
+    }
+
+    public string Greeting()
+    {
+        return $"Hi, I'm {_studentName} and I'm in grade {Grade}.";
+    }
+}
+
+// გამოყენება
+Student student = new Student("John", "A");
+Console.WriteLine(student.Greeting());
+
+/////////////დავალება 3: მემკვიდრეობა და მეთოდის გადატვირთვა
+
+public class Figure
+{
+    protected double Area { get; set; }
+
+    public Figure()
+    {
+        Area = 0;
+    }
+}
+
+public class Triangle : Figure
+{
+    private double _base;
+    private double _height;
+
+    public double Base
+    {
+        get { return _base; }
+        set { _base = value; }
+    }
+
+    public double Height
+    {
+        get { return _height; }
+        set { _height = value; }
+    }
+
+    public void CalculateArea(double baseLength, double height)
+    {
+        Area = (baseLength * height) / 2;
+        Console.WriteLine($"Triangle Area: {Area}");
+    }
+}
+
+public class Square : Figure
+{
+    private double _sideLength;
+
+    public double SideLength
+    {
+        get { return _sideLength; }
+        set { _sideLength = value; }
+    }
+
+    public void CalculateArea(double sideLength)
+    {
+        Area = sideLength * sideLength;
+        Console.WriteLine($"Square Area: {Area}");
+    }
+}
+
+// გამოყენება
+Triangle triangle = new Triangle();
+triangle.CalculateArea(5, 10);
+
+Square square = new Square();
+square.CalculateArea(4);
+დავალება 4: აბსტრაქტული კლასები და ინტერფეისები
+public abstract class Animal
+{
+    public abstract void MakeSound();
+}
+
+public class Dog : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Woof");
+    }
+}
+
+public class Cat : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Meow");
+    }
+}
+
+// გამოყენება
+Animal dog = new Dog();
+dog.MakeSound();
+
+Animal cat = new Cat();
+cat.MakeSound();
+დავალება 5: Generics და ზოგადი Generic List
+public class MyCollection<T>
+{
+    private List<T> items = new List<T>();
+
+    public void AddItem(T item)
+    {
+        items.Add(item);
+    }
+
+    public T GetItem(int index)
+    {
+        return items[index];
+    }
+}
+
+// გამოყენება
+MyCollection<string> collection = new MyCollection<string>();
+collection.AddItem("Hello");
+collection.AddItem("World");
+
+Console.WriteLine(collection.GetItem(0));  // გამოიტანს "Hello"
+Console.WriteLine(collection.GetItem(1));  // გამოიტანს "World"
+
+/////////////
+
+
+დავალება 1: მონაცემთა ტიპები და კონტროლის სტრუქტურები
+
+int quantity = 7;
+string itemName = "Widget";
+
+for (int i = 1; i <= 5; i++)
+{
+    Console.WriteLine($"Item: {itemName}, Iteration: {i}");
+}
+
+დავალება 2: კლასები და მეთოდები
+public class Employee
+{
+    private string _employeeName;
+    public string Salary { get; set; }
+
+    public Employee(string name, string salary)
+    {
+        _employeeName = name;
+        Salary = salary;
+    }
+
+    public string DisplayInfo()
+    {
+        return $"Hi, I'm {_employeeName} and I earn {Salary} per year.";
+    }
+}
+
+// გამოყენება
+Employee employee = new Employee("Alice", "$50,000");
+Console.WriteLine(employee.DisplayInfo());
+
+
+დავალება 3: მემკვიდრეობა და მეთოდის გადატვირთვა
+
+public class Item
+{
+    protected double Price { get; set; }
+
+    public Item()
+    {
+        Price = 0;
+    }
+}
+
+public class Fruit : Item
+{
+    private double _weightInKg;
+    private double _priceOfOneKg;
+
+    public double WeightInKg
+    {
+        get { return _weightInKg; }
+        set { _weightInKg = value; }
+    }
+
+    public double PriceOfOneKg
+    {
+        get { return _priceOfOneKg; }
+        set { _priceOfOneKg = value; }
+    }
+
+    public void CalculateTotalPrice(double weightInKg, double priceOfOneKg)
+    {
+        Price = weightInKg * priceOfOneKg;
+        Console.WriteLine($"Total Price of Fruit: {Price}");
+    }
+}
+
+public class Electronics : Item
+{
+    private int _quantity;
+    private double _oneUnitPrice;
+
+    public int Quantity
+    {
+        get { return _quantity; }
+        set { _quantity = value; }
+    }
+
+    public double OneUnitPrice
+    {
+        get { return _oneUnitPrice; }
+        set { _oneUnitPrice = value; }
+    }
+
+    public void CalculateTotalPrice(int quantity, double oneUnitPrice)
+    {
+        Price = quantity * oneUnitPrice;
+        Console.WriteLine($"Total Price of Electronics: {Price}");
+    }
+}
+
+// გამოყენება
+Fruit apple = new Fruit();
+apple.CalculateTotalPrice(2, 3.5);
+
+Electronics laptop = new Electronics();
+laptop.CalculateTotalPrice(5, 800);
+
+დავალება 4: აბსტრაქტული კლასები და ინტერფეისები
+
+public abstract class Bird
+{
+    public abstract void MakeSound();
+}
+
+public class Sparrow : Bird
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Chirp");
+    }
+}
+
+public class Pigeon : Bird
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Coo");
+    }
+}
+
+// გამოყენება
+Bird sparrow = new Sparrow();
+sparrow.MakeSound();
+
+Bird pigeon = new Pigeon();
+pigeon.MakeSound();
+
+
+
+დავალება 1: მონაცემთა ტიპები და კონტროლის სტრუქტურები
+csharp
+Copy code
+int quantity = 7;
+string itemName = "Widget";
+
+for (int i = 1; i <= 5; i++)
+{
+    Console.WriteLine($"Item: {itemName}, Iteration: {i}");
+}
+დავალება 2: კლასები და მეთოდები
+csharp
+Copy code
+public class Employee
+{
+    private string _employeeName;
+    public string Salary { get; set; }
+
+    public Employee(string name, string salary)
+    {
+        _employeeName = name;
+        Salary = salary;
+    }
+
+    public string DisplayInfo()
+    {
+        return $"Hi, I'm {_employeeName} and I earn {Salary} per year.";
+    }
+}
+
+// გამოყენება
+Employee employee = new Employee("Alice", "$50,000");
+Console.WriteLine(employee.DisplayInfo());
+დავალება 3: მემკვიდრეობა და მეთოდის გადატვირთვა
+csharp
+Copy code
+public class Item
+{
+    protected double Price { get; set; }
+
+    public Item()
+    {
+        Price = 0;
+    }
+}
+
+public class Fruit : Item
+{
+    private double _weightInKg;
+    private double _priceOfOneKg;
+
+    public double WeightInKg
+    {
+        get { return _weightInKg; }
+        set { _weightInKg = value; }
+    }
+
+    public double PriceOfOneKg
+    {
+        get { return _priceOfOneKg; }
+        set { _priceOfOneKg = value; }
+    }
+
+    public void CalculateTotalPrice(double weightInKg, double priceOfOneKg)
+    {
+        Price = weightInKg * priceOfOneKg;
+        Console.WriteLine($"Total Price of Fruit: {Price}");
+    }
+}
+
+public class Electronics : Item
+{
+    private int _quantity;
+    private double _oneUnitPrice;
+
+    public int Quantity
+    {
+        get { return _quantity; }
+        set { _quantity = value; }
+    }
+
+    public double OneUnitPrice
+    {
+        get { return _oneUnitPrice; }
+        set { _oneUnitPrice = value; }
+    }
+
+    public void CalculateTotalPrice(int quantity, double oneUnitPrice)
+    {
+        Price = quantity * oneUnitPrice;
+        Console.WriteLine($"Total Price of Electronics: {Price}");
+    }
+}
+
+// გამოყენება
+Fruit apple = new Fruit();
+apple.CalculateTotalPrice(2, 3.5);
+
+Electronics laptop = new Electronics();
+laptop.CalculateTotalPrice(5, 800);
+
+დავალება 4: აბსტრაქტული კლასები და ინტერფეისები
+
+csharp
+Copy code
+public abstract class Bird
+{
+    public abstract void MakeSound();
+}
+
+public class Sparrow : Bird
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Chirp");
+    }
+}
+
+public class Pigeon : Bird
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Coo");
+    }
+}
+
+// გამოყენება
+Bird sparrow = new Sparrow();
+sparrow.MakeSound();
+
+Bird pigeon = new Pigeon();
+pigeon.MakeSound();
+
+
+დავალება 5: Generics და ზოგადი Generic List
+
+
+public class MyCollection<T>
+{
+    private List<T> items = new List<T>();
+
+    public void AddItem(T item)
+    {
+        items.Add(item);
+    }
+
+    public T GetItem(int index)
+    {
+        return items[index];
+    }
+}
+
+// გამოყენება
+MyCollection<string> collection = new MyCollection<string>();
+collection.AddItem("Apple");
+collection.AddItem("Banana");
+collection.AddItem("Cherry");
+
+Console.WriteLine(collection.GetItem(0));  // გამოიტანს "Apple"
+Console.WriteLine(collection.GetItem(1));  // გამოიტანს "Banana"
